@@ -1,4 +1,5 @@
-# Publish only the shared instructions and this allowlist.
+# Publish only the shared instructions, introduction, and this allowlist.
 *
 !/AGENTS.md
 !/.gitignore
+!/README.md
