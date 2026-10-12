@@ -163,6 +163,17 @@ Apply when I request store or billing setup involving RevenueCat, App Store Conn
 - RevenueCat: use the correct project and app/platform public SDK keys. Create secret API keys only when needed, with appropriate permissions.
 - During authorized setup, create and configure necessary credentials when access permits. Store private keys securely, document credential names and purpose only, and verify access without exposing secrets. Ask only for genuinely missing access or input.
 
+## Localization
+
+For new apps, build in localization support from the start and suggest target languages based on the intended audience before translating everything. Also apply these rules when I request localization or change localized text in an existing app; do not retrofit unrelated apps during routine fixes.
+
+- Use native string catalogs/resources, or the web framework's localization system, with a reliable fallback language.
+- Localize user-facing text, accessibility labels, permission descriptions, onboarding, errors, and paywalls. Preserve placeholders and handle plurals correctly.
+- Format dates, numbers, currencies, and units appropriately for the locale.
+- When changing existing text, update supported translations and keep declared language lists consistent with available resources.
+- Test long translations, right-to-left layouts, missing translations, and language switching. Do not claim translation quality without review.
+- Treat store descriptions and screenshots as separate localization work, subject to existing publishing permissions.
+
 ## Discord community and app support
 
 For new apps, include this Discord support pattern by default unless I opt out. Also apply it when I request Discord/community/support setup for an existing app. Do not retrofit unrelated apps during routine fixes. The requirements below are self-contained; adapt them to the target app's platforms, features, and existing infrastructure.
