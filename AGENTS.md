@@ -89,6 +89,10 @@ certification, or Scorecard setup for a repository.
 - Also configure OpenSSF Scorecard, publish its results, and improve
   actionable findings with appropriate dependency updates, security
   analysis, meaningful fuzz testing, CI, and branch protections.
+- Check GitHub’s Community Standards checklist and suggest adding any
+  missing code of conduct, issue templates (bug report and feature request),
+  and pull request template. Tailor them to the repository and its
+  sole-maintainer workflow, preserving existing suitable files.
 - Add both live badges near the top of the README, linked to their
   public assessments. Verify that the badges actually render.
 - I am a sole maintainer. Never require another person's approval:
