@@ -65,6 +65,10 @@ When I **explicitly** ask for a debug build/install (e.g. to test onboarding onc
 - **iOS Debug DerivedData**: reuse a stable debug path such as `~/Library/Developer/Xcode/DerivedData/calorietracker-device-debug` — still don’t invent a new `/tmp/...` tree each attempt.
 - Package IDs: debug `com.apoorvdarshan.calorietracker.debug` (iOS + Android).
 
+## Hosting and domains
+
+When I ask to host or deploy a website, app, demo, API, or project, suggest suitable options: GitHub Pages for static sites, a project subdomain at `<project-name>.apoorvdarshan.com`, or another custom domain I choose. Prefer my existing domain’s subdomain by default. GitHub Pages can also host a static site using that subdomain. Confirm my choice before setup, unless I’ve already specified it. Use my existing Cloudflare configuration where applicable, preserving the main domain, unrelated DNS records, routes, and projects. Ask before changing conflicting configuration or purchasing a domain. Verify HTTPS and the final deployment URL.
+
 ## GitHub repository About and topics
 
 When creating or setting up my project repositories, populate the GitHub About section with a concise description, the project's verified website/demo URL when available, and relevant GitHub topics describing its purpose, platforms, and technologies. Fill missing details and update outdated ones; preserve accurate existing metadata, avoid irrelevant topics, and don't modify third-party forks unless asked.
