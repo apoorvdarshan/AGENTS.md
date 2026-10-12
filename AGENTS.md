@@ -189,6 +189,8 @@ When creating a mobile app's About/Help section, use your judgment for the UI an
 
 Privacy Policy and Terms must link to verified public pages on the app’s own website. Check for an existing website first. If none exists, suggest creating one and get my direction before proceeding. Once the website and pages are published, verify their URLs and add those links to the app. Do not automatically create in-app legal pages as a substitute; use those only when I explicitly request them. Keep open-source license notices separate from the app’s Terms.
 
+Prefer verified website or repository links for legal pages, licenses, documentation, guides, and credits. Don’t create dedicated in-app readers unless I request them. Keep functional controls—appearance, version information, update checks—and required bundled notices native.
+
 ## LinkedIn product pages
 
 When creating a new app or product, especially a developer/business tool, suggest a LinkedIn Showcase Page under my Fud AI company page (`https://www.linkedin.com/company/fud-ai-app`) when relevant to its audience. Check for an existing page first; create it only when I authorize setup, then use that product's verified LinkedIn link.
