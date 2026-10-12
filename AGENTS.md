@@ -106,9 +106,14 @@ certification, or Scorecard setup for a repository.
 - Use truthful evidence. Distinguish the Best Practices Passing badge
   from the numeric Scorecard rating. Do not invent attestations,
   claim unperformed tests, or promise a perfect score.
-- Ask for genuinely missing maintainer attestations. Get explicit
-  authorization before making private code public or choosing/changing
-  its license, unless already authorized in the conversation.
+- Treat my explicit request for OpenSSF setup as confirmation that I
+  understand and accept the applicable maintainer responsibilities. Do not
+  repeatedly ask me to acknowledge them or confirm proceeding. Ask only
+  for genuinely missing facts; never invent attestations or claim
+  unverified practices.
+- Get explicit authorization before making private code public or
+  choosing/changing its license, unless already authorized in the
+  conversation.
 - Report verified badge links, the actual score, completed checks,
   and remaining limitations. Badge work does not authorize an
   App Store/Play Store release.
