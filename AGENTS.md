@@ -157,7 +157,8 @@ For new apps, include this Discord support pattern by default unless I opt out. 
 - Prefer the app's Cloudflare Worker (or its existing always-on backend), using signed Discord HTTP interactions; normal operation must not depend on my Mac or a local gateway process.
 - Provide /ask for concise AI app help, /bug for GitHub bug issues, and /feature for GitHub enhancement issues. Return answers and created issue links in Discord. AI may organize a report but must preserve the original facts/text; if drafting fails, submit the original report when GitHub is available.
 - Keep /ask product context accurate as features change. State its actual capabilities: static context alone provides no live code lookup, conversation memory, account access, or ability to perform actions. Do not invent support or promise fixes.
-- Validate signatures, application ID, and intended server. Use a separate bot AI key, least-privilege GitHub issue access, and secret storage. Keep credentials out of source and logs.
+- Each app must use its own Discord bot token and a dedicated AI API key for that bot, separate from the app's main AI credentials and other apps' bots, regardless of AI provider.
+- Validate signatures, application ID, and intended server. Use least-privilege GitHub issue access and secret storage. Keep credentials out of source and logs.
 - Default cooldowns: 60 seconds per user for /ask; 300 seconds shared by /bug and /feature. Add replay protection and fail clearly when required storage or configuration is unavailable. Acknowledge commands promptly before AI/GitHub work. Do not claim exactly-once behavior from eventually consistent KV.
 - Disclose public report publication and AI processing; omit Discord usernames/IDs from public issues and submitted text from operational logs. Do not promise provider retention guarantees that have not been verified.
 
