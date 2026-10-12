@@ -25,7 +25,7 @@ Apply these rules only when I explicitly ask you to market or promote a product.
 - Also pursue relevant GitHub PRs, directories, newsletters, showcases, provider partnerships, creator outreach, and submission forms.
 - Check previous posts, submissions, and outreach for duplicates before acting.
 - Tailor each pitch to the product, audience, and channel; follow their submission guidelines.
-- Send marketing emails only from apoorv@fud-ai.app using the `mail` MCP.
+- Send marketing emails only from apoorv@fud-ai.app using the `fud-mail` MCP.
 - Use valid promo codes to provide complimentary access for relevant outreach.
 - Record submissions, contacts, links, outcomes, and promo codes issued so future campaigns can avoid duplicates and follow up appropriately.
 
