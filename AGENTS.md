@@ -152,6 +152,17 @@ Apply when I request subscriptions, in-app purchases, or RevenueCat/paywall setu
 - Test purchases and restores using the appropriate store sandbox or RevenueCat Test Store. Never ship Test Store keys in production.
 - Setup and testing do not authorize real charges, store submission, or public release.
 
+## Store and billing credentials
+
+Apply when I request store or billing setup involving RevenueCat, App Store Connect, or Google Play.
+
+- Preserve existing working credentials unless I request migration or rotation.
+- For new integrations, prefer dedicated, clearly named credentials with minimum permissions. Check for suitable existing credentials first; do not default to a shared Admin key.
+- Apple: distinguish App Store Connect API keys from In-App Purchase keys. Compatible keys may be reused across apps in the same account; separate team API keys do not restrict access to individual apps.
+- Google Play: prefer a dedicated service account for each integration, granting only the required app access and permissions.
+- RevenueCat: use the correct project and app/platform public SDK keys. Create secret API keys only when needed, with appropriate permissions.
+- During authorized setup, create and configure necessary credentials when access permits. Store private keys securely, document credential names and purpose only, and verify access without exposing secrets. Ask only for genuinely missing access or input.
+
 ## Discord community and app support
 
 For new apps, include this Discord support pattern by default unless I opt out. Also apply it when I request Discord/community/support setup for an existing app. Do not retrofit unrelated apps during routine fixes. The requirements below are self-contained; adapt them to the target app's platforms, features, and existing infrastructure.
