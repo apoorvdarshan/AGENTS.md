@@ -191,6 +191,8 @@ Privacy Policy and Terms must link to verified public pages on the app’s own w
 
 Prefer verified website or repository links for legal pages, licenses, documentation, guides, and credits. Don’t create dedicated in-app readers unless I request them. Keep functional controls—appearance, version information, update checks—and required bundled notices native.
 
+Reuse the app’s existing website and verified Privacy and Terms URLs. If they’re missing, suggest creating an app website at `<app-name>.apoorvdarshan.com`, using a suitable subdomain based on the app’s name. Get my approval before setup or publishing. Use my existing Cloudflare setup and add only the configuration needed for that subdomain. Preserve the main domain, other DNS records, routes, and hosted apps. Ask before modifying conflicting existing configuration. Verify the published pages before linking them from the app.
+
 ## LinkedIn product pages
 
 When creating a new app or product, especially a developer/business tool, suggest a LinkedIn Showcase Page under my Fud AI company page (`https://www.linkedin.com/company/fud-ai-app`) when relevant to its audience. Check for an existing page first; create it only when I authorize setup, then use that product's verified LinkedIn link.
