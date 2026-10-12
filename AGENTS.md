@@ -151,6 +151,7 @@ Apply when I request subscriptions, in-app purchases, or RevenueCat/paywall setu
 - Verify entitlements server-side when protecting backend features; never trust a client-supplied paid-plan flag.
 - Test purchases and restores using the appropriate store sandbox or RevenueCat Test Store. Never ship Test Store keys in production.
 - Setup and testing do not authorize real charges, store submission, or public release.
+- Whenever adding paid features, subscriptions, purchases, or tip/donation IAPs, suggest adding the app to my TrustMRR profile (`https://trustmrr.com/founder/apoorvdarshan`). Check for an existing listing first; proceed with setup when I authorize it.
 
 ## Store and billing credentials
 
