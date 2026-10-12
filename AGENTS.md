@@ -139,3 +139,31 @@ release switches or store automation.
   Distinguish uploaded, submitted, and publicly available states.
 
 Validate disabled paths, failures, and timeouts without publishing.
+
+## Discord community and app support
+
+For new apps, include this Discord support pattern by default unless I opt out. Also apply it when I request Discord/community/support setup for an existing app. Do not retrofit unrelated apps during routine fixes. Use ~/verceltics/services/discord-bot/README.md and its app/Worker implementation as the reference, with ~/fud-ai/services/discord-bot/README.md as a secondary example; inspect current code before copying behavior. Adapt everything to the target app.
+
+### App experience
+
+- Provide Help & Community (or the app's existing Help/About area) with Get Help / Join Discord, Report a Bug, and Request a Feature.
+- For bugs and features, offer GitHub or Discord. GitHub opens the appropriate issue template; Discord opens the relevant platform bug channel or feature channel through a verified invite/link. Explain which slash command to use. A server invite does not automatically execute a command or transfer a report.
+- Show that Discord users can submit reports without a GitHub account and that reports become public GitHub issues. Never automatically attach credentials, private logs, or personal app data.
+- Use a dedicated app server and named bot. Reuse an existing setup for that app after checking for duplicates; never reuse another app's bot identity, tokens, channels, or repository by accident.
+- Include help, platform-specific bug reports where applicable, feature requests, and announcements channels with clear command guidance.
+
+### Bot and hosting
+
+- Prefer the app's Cloudflare Worker (or its existing always-on backend), using signed Discord HTTP interactions; normal operation must not depend on my Mac or a local gateway process.
+- Provide /ask for concise AI app help, /bug for GitHub bug issues, and /feature for GitHub enhancement issues. Return answers and created issue links in Discord. AI may organize a report but must preserve the original facts/text; if drafting fails, submit the original report when GitHub is available.
+- Keep /ask product context accurate as features change. State its actual capabilities: static context alone provides no live code lookup, conversation memory, account access, or ability to perform actions. Do not invent support or promise fixes.
+- Validate signatures, application ID, and intended server. Use a separate bot AI key, least-privilege GitHub issue access, and secret storage. Keep credentials out of source and logs.
+- Default cooldowns: 60 seconds per user for /ask; 300 seconds shared by /bug and /feature. Add replay protection and fail clearly when required storage or configuration is unavailable. Acknowledge commands promptly before AI/GitHub work. Do not claim exactly-once behavior from eventually consistent KV.
+- Disclose public report publication and AI processing; omit Discord usernames/IDs from public issues and submitted text from operational logs. Do not promise provider retention guarantees that have not been verified.
+
+### Releases and completion
+
+- Check supported stores hourly and announce newly public releases with release notes and download links. Seed the initial version without announcing a backlog; deduplicate later announcements. Builds, uploads, testing tracks, and releases still in review are not public releases. Skip unconfigured platforms or ambiguous publication status.
+- Store checks and Discord setup never authorize publishing an app. Follow existing authorization rules for external writes/messages; do not post live test reports or announcements without authorization.
+- Document per-app IDs, channels, invite links, command registration, secrets by name only, deployment, and recovery. Safely upsert commands without removing unrelated ones.
+- Test validation, cooldowns, AI fallback, GitHub failures, and announcement deduplication. Verify app links and deployed configuration within the authorized scope. Report missing access/configuration honestly; ask only for genuinely missing input and do not call a local implementation live until verified.
