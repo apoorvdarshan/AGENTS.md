@@ -142,7 +142,7 @@ Validate disabled paths, failures, and timeouts without publishing.
 
 ## Discord community and app support
 
-For new apps, include this Discord support pattern by default unless I opt out. Also apply it when I request Discord/community/support setup for an existing app. Do not retrofit unrelated apps during routine fixes. Use ~/verceltics/services/discord-bot/README.md and its app/Worker implementation as the reference, with ~/fud-ai/services/discord-bot/README.md as a secondary example; inspect current code before copying behavior. Adapt everything to the target app.
+For new apps, include this Discord support pattern by default unless I opt out. Also apply it when I request Discord/community/support setup for an existing app. Do not retrofit unrelated apps during routine fixes. The requirements below are self-contained; adapt them to the target app's platforms, features, and existing infrastructure.
 
 ### App experience
 
