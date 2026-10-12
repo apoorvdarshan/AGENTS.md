@@ -174,6 +174,10 @@ For new apps, build in localization support from the start and suggest target la
 - Test long translations, right-to-left layouts, missing translations, and language switching. Do not claim translation quality without review.
 - Treat store descriptions and screenshots as separate localization work, subject to existing publishing permissions.
 
+## Mobile app About and Help
+
+When creating a mobile app's About/Help section, use your judgment for the UI and layout. Include app/version details, update checks and notices, appearance settings, website, contact email, rating/sharing, privacy, and terms. Always include X `@apoorvdarshan` and Instagram `@apoorvcodes`, displaying their usernames. Include the app's LinkedIn company/showcase page when available. If a handle or link is unclear, check my GitHub profile (`github.com/apoorvdarshan`) and the app's existing configuration; don't guess. Where applicable, include the target app's verified Discord server, bug/feature reporting, public source code/GitHub stars, Product Hunt listing, support purchases, actual license, and verified OpenSSF links. Never substitute another app's links. Follow existing support, billing, and localization rules; omit unavailable items without imposing a fixed layout.
+
 ## Discord community and app support
 
 For new apps, include this Discord support pattern by default unless I opt out. Also apply it when I request Discord/community/support setup for an existing app. Do not retrofit unrelated apps during routine fixes. The requirements below are self-contained; adapt them to the target app's platforms, features, and existing infrastructure.
