@@ -161,6 +161,15 @@ For new apps, include this Discord support pattern by default unless I opt out. 
 - Default cooldowns: 60 seconds per user for /ask; 300 seconds shared by /bug and /feature. Add replay protection and fail clearly when required storage or configuration is unavailable. Acknowledge commands promptly before AI/GitHub work. Do not claim exactly-once behavior from eventually consistent KV.
 - Disclose public report publication and AI processing; omit Discord usernames/IDs from public issues and submitted text from operational logs. Do not promise provider retention guarantees that have not been verified.
 
+### Issue closure follow-up
+
+- When /bug or /feature creates an issue, privately save the repository/issue number, submitter's Discord user ID, channel ID, and original bot-response ID. Keep these routing IDs out of public issue text; never persist interaction tokens or credentials in the mapping.
+- Handle signed GitHub issue-closure webhooks for the intended repository. Notify only issues with a trusted saved Discord mapping; never infer recipients from issue text, labels, or the person closing the issue. Existing unmapped issues do not automatically qualify.
+- Reply to the original bot response in the same Discord channel and explicitly mention only its submitter. If the response was deleted, allow a same-channel fallback; do not silently DM or post elsewhere. Respect missing channel permissions.
+- Distinguish completed, not planned, duplicate, and unspecified closures. Closing an issue does not prove a fix or feature is available in an app release; word the notification accordingly.
+- Persist pending notifications before acknowledging the webhook, retry transient delivery failures in bounded batches, and suppress repeated notifications for the same closure. A later closure after reopening may notify again. Document retention, removal, retry limits, and actual deduplication guarantees. Mapping or notification failures must never cause duplicate issue creation.
+- Keep this in the backend/bot; existing app links need no iOS/Android update. Verify both report-command mappings, webhook authentication, exact reply/mention targeting, closure outcomes, retries, and duplicate deliveries. When live testing is authorized, use clearly labeled test reports and distinguish live webhook verification from mocked command tests before claiming success.
+
 ### Releases and completion
 
 - Check supported stores hourly and announce newly public releases with release notes and download links. Seed the initial version without announcing a backlog; deduplicate later announcements. Builds, uploads, testing tracks, and releases still in review are not public releases. Skip unconfigured platforms or ambiguous publication status.
