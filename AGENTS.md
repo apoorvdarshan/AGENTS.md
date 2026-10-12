@@ -140,6 +140,18 @@ release switches or store automation.
 
 Validate disabled paths, failures, and timeouts without publishing.
 
+## RevenueCat and paywalls
+
+Apply when I request subscriptions, in-app purchases, or RevenueCat/paywall setup for an app. Adapt plans and paid benefits to that app; do not assume hosted AI or retrofit unrelated apps during routine fixes.
+
+- Use the app's own RevenueCat project, with separate public SDK keys for iOS and Android. Keep private RevenueCat API keys and store credentials out of app binaries, source control, and logs; use secret storage and configure store credentials in RevenueCat.
+- Keep store products, RevenueCat entitlements, offerings, and packages consistent with the app's identifiers and intended paid benefits.
+- Show actual localized store prices and billing periods, applicable renewal/trial terms, Restore Purchases, Manage Subscription, privacy policy, and terms.
+- Unlock paid access only from verified purchase/entitlement state. Handle cancellation, pending purchases, failures, expiration, and restoration; do not treat an unsuccessful entitlement refresh as proof that access expired.
+- Verify entitlements server-side when protecting backend features; never trust a client-supplied paid-plan flag.
+- Test purchases and restores using the appropriate store sandbox or RevenueCat Test Store. Never ship Test Store keys in production.
+- Setup and testing do not authorize real charges, store submission, or public release.
+
 ## Discord community and app support
 
 For new apps, include this Discord support pattern by default unless I opt out. Also apply it when I request Discord/community/support setup for an existing app. Do not retrofit unrelated apps during routine fixes. The requirements below are self-contained; adapt them to the target app's platforms, features, and existing infrastructure.
