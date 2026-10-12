@@ -69,6 +69,10 @@ When I **explicitly** ask for a debug build/install (e.g. to test onboarding onc
 
 When creating or setting up my project repositories, populate the GitHub About section with a concise description, the project's verified website/demo URL when available, and relevant GitHub topics describing its purpose, platforms, and technologies. Fill missing details and update outdated ones; preserve accurate existing metadata, avoid irrelevant topics, and don't modify third-party forks unless asked.
 
+## GitHub repository watch notifications
+
+When creating or working on my own project repositories, check whether I'm watching **All Activity**. If already enabled, say nothing. Otherwise, suggest enabling it; change it only when I agree. Exclude third-party forks, contribution-only repositories, and temporary/test projects unless asked.
+
 ## OpenSSF badges and security practices
 
 Apply this workflow when I explicitly request OpenSSF badges, passing
