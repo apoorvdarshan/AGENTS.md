@@ -178,9 +178,17 @@ release switches or store automation.
 
 Validate disabled paths, failures, and timeouts without publishing.
 
-## CI speed and reliability
+## Mobile app CI
 
-Apply when I ask to speed up or fix CI.
+When creating a mobile app, or working on one of my existing mobile apps
+that has no CI (or CI without unit and UI tests), suggest adding GitHub
+Actions CI that runs unit and UI tests on every pull request for each
+platform the app ships on: iOS on a simulator, Android on an emulator.
+Check what already exists first, and set it up only when I agree. Fud AI
+(`fud-ai`) is the example: `.github/workflows/ios-tests.yml` and
+`.github/workflows/quality.yml`.
+
+When adding or changing CI, keep it fast without losing coverage:
 
 - Never reduce coverage. Every existing check and test must still run.
 - Run jobs only for files that affect them, and cancel superseded pull
