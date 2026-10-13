@@ -258,6 +258,10 @@ entry together unless I specify a narrower scope. The canonical public repo is
 scripts before editing. `profile` and `rekisei` are archived; do not recreate
 those local checkouts or update them as active sources.
 
+“This project” means the repository currently being worked on. Inspect its
+README, GitHub About, and verified website for accurate details. Add it at the
+top of the best-fitting category unless I specify otherwise.
+
 Keep personal resume LaTeX and private data in `~/profile-resume-private`; only
 the verified PDF belongs in `website/public/`. Preserve Documents resume symlinks.
 Rebuild and inspect the PDF when resume content changes, commit/push the private
