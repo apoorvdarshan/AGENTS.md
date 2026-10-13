@@ -50,22 +50,23 @@ Skip entirely for non-app repos, non-mobile apps, docs-only, backend-only, or wh
 
 Personal test installs for Apoorv only — not App Store / Play Store release shipping.
 
-## Default: Release (preserve data)
+## Default: iOS Release, Android Debug (preserve data)
 
 After every code change that affects the **mobile** apps, rebuild, install, and open on my connected phones before finishing (unless I explicitly say not to or a device is disconnected):
 
 - **iOS**: Release build only. Install over the existing App Store / prior install. Never uninstall first.
 - **iOS DerivedData (critical, Fud AI / calorietracker)**: Always reuse a stable path — prefer `~/Library/Developer/Xcode/DerivedData/calorietracker-device-release` with `-derivedDataPath`. Never `rm -rf` DerivedData before a normal install build, and never invent a fresh `/tmp/...` tree each attempt. Cold Release rebuilds of heavy SPM deps (e.g. RevenueCat) take 15–30+ min; wiping forces that every time. Incremental reuse is required.
-- **Android**: Release build only. Use `adb install -r` over the existing release / prior install. Never uninstall first or clear app data. Do not expect to overwrite the Play Store package if signatures differ.
-- **Fud AI package IDs (release)**: iOS/Android `com.apoorvdarshan.calorietracker` — launch after install.
-- **Android launch (critical)**: Never use `adb shell monkey` to open the app. On this phone, monkey flips system auto-rotate on (`accelerometer_rotation=1`) even when portrait is locked. Launch with `am start` instead, e.g. `adb shell am start -a android.intent.action.MAIN -c android.intent.category.LAUNCHER -p com.apoorvdarshan.calorietracker` (use the debug package id for debug installs). Do not change rotation / auto-rotate settings unless I ask.
-- Preserve existing on-device **release** data unless I explicitly ask to wipe or reinstall clean.
+- **Android default: Debug (side-by-side)**: Build and install the dedicated **Fud AI Debug** app (`com.apoorvdarshan.calorietracker.debug`) with `adb install -r`, then launch it with `am start`. Keep the Debug app's existing data by default; wipe it only when I ask for a fresh or onboarding test (see Fresh Debug installs below). Never uninstall, overwrite, or clear the Play-installed release app (`com.apoorvdarshan.calorietracker`).
+- **Android Release testing: Play internal testing only**: Test Release behavior, including purchases, through Google Play internal testing builds, not sideloaded Release APKs (a locally signed Release cannot update the Play-signed app). Uploading to a Play testing track is an external publish — do it only when I ask.
+- **Fud AI package IDs**: iOS release `com.apoorvdarshan.calorietracker`; Android default installs use debug `com.apoorvdarshan.calorietracker.debug` — launch after install.
+- **Android launch (critical)**: Never use `adb shell monkey` to open the app. On this phone, monkey flips system auto-rotate on (`accelerometer_rotation=1`) even when portrait is locked. Launch with `am start` instead, e.g. `adb shell am start -a android.intent.action.MAIN -c android.intent.category.LAUNCHER -p com.apoorvdarshan.calorietracker.debug`. Do not change rotation / auto-rotate settings unless I ask.
+- Preserve existing on-device **release** data (and, by default, Android Debug data) unless I explicitly ask to wipe or reinstall clean.
 - Prefer the currently connected device (Apoorv’s iPhone / USB Android) when installing.
 - After promoting app assets (e.g. workout images), rebuild so they are in the binary before install; spot-check a sample asset in the build artifact when relevant.
 
-## Explicit Debug installs (only when I ask for debug)
+## Fresh Debug installs (only when I ask)
 
-When I **explicitly** ask for a debug build/install (e.g. to test onboarding once):
+When I **explicitly** ask for a debug build/install on iOS, or for a fresh/onboarding Debug install on either platform (e.g. to test onboarding once):
 
 - Use the dedicated **debug** app identity — do **not** install debug over the release/Play/App Store app.
 - **Launcher name must be `Fud AI Debug`** (not plain `Fud AI`) so it is visually distinct next to release. Keep that name on both platforms.
