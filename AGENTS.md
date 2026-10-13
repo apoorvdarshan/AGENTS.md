@@ -281,6 +281,24 @@ input. Keep a record of repositories, issues, PR links, checks, and pending
 follow-ups so another thread can resume without duplicating work. Report
 blockers honestly; don’t claim work continues after the session ends.
 
+## External contribution local cleanup
+
+After completing an external issue fix or PR follow-up, remove the temporary
+local clones and worktrees created for that task once all intended commits are
+pushed, the PR is created or updated, and the relevant checks are verified.
+Do not wait for the upstream PR to merge. First record the upstream repository,
+fork, branch, PR URL, commit SHA, validation results, and pending follow-ups in
+a durable location outside the checkout so a future thread can resume by
+cloning the existing PR branch.
+
+Before deletion, verify there are no unpushed commits, uncommitted changes, or
+unique untracked/ignored files that need preserving, and no active process or
+other agent uses the checkout. Preserve needed files outside it first; never
+discard unresolved work. Limit automatic cleanup to task-created external
+contribution checkouts. Do not delete pre-existing user checkouts, my own
+project repositories, remote forks, or remote PR branches unless I explicitly
+ask. Use git worktree remove for worktrees and verify the exact cleanup path.
+
 ## External contribution follow-up
 
 When I ask to fix CI, address review comments, or resolve conflicts for an
