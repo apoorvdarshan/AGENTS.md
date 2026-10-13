@@ -247,3 +247,21 @@ For new apps, include this Discord support pattern by default unless I opt out. 
 - Store checks and Discord setup never authorize publishing an app. Follow existing authorization rules for external writes/messages; do not post live test reports or announcements without authorization.
 - Document per-app IDs, channels, invite links, command registration, secrets by name only, deployment, and recovery. Safely upsert commands without removing unrelated ones.
 - Test validation, cooldowns, AI fallback, GitHub failures, and announcement deduplication. Verify app links and deployed configuration within the authorized scope. Report missing access/configuration honestly; ask only for genuinely missing input and do not call a local implementation live until verified.
+
+## Profile, website, and resume synchronization
+
+When I ask from any project to add, update, rename, or remove a project from my
+profile, maintain the GitHub profile, personal website, and applicable resume
+entry together unless I specify a narrower scope. The canonical public repo is
+`apoorvdarshan/apoorvdarshan`, normally at `~/apoorvdarshan`: root `README.md`,
+`website/`, and `resume/template/`. Read that repo's AGENTS.md and existing sync
+scripts before editing. `profile` and `rekisei` are archived; do not recreate
+those local checkouts or update them as active sources.
+
+Keep personal resume LaTeX and private data in `~/profile-resume-private`; only
+the verified PDF belongs in `website/public/`. Preserve Documents resume symlinks.
+Rebuild and inspect the PDF when resume content changes, commit/push the private
+source and verified output, sync/build/deploy the website, and verify public
+results. Preserve curated ordering, factual metrics, and unrelated content.
+Connect, What I Use, and Agent Setup changes normally affect README and website
+only, not the resume. Follow existing repository protections and commit rules.
