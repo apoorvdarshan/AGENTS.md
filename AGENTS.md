@@ -250,6 +250,12 @@ For new apps, include this Discord support pattern by default unless I opt out. 
 
 ## Profile, website, and resume synchronization
 
+When creating or working on my own project, check whether it is already listed
+in my profile. If it is missing and ready to showcase, suggest adding it to my
+GitHub profile, website, and applicable résumé entry. Exclude third-party forks,
+contribution-only repositories, and temporary/test projects unless I ask. Don’t
+suggest existing listings or add anything until I agree.
+
 When I ask from any project to add, update, rename, or remove a project from my
 profile, maintain the GitHub profile, personal website, and applicable resume
 entry together unless I specify a narrower scope. The canonical public repo is
