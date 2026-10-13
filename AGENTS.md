@@ -248,6 +248,21 @@ For new apps, include this Discord support pattern by default unless I opt out. 
 - Document per-app IDs, channels, invite links, command registration, secrets by name only, deployment, and recovery. Safely upsert commands without removing unrelated ones.
 - Test validation, cooldowns, AI fallback, GitHub failures, and announcement deduplication. Verify app links and deployed configuration within the authorized scope. Report missing access/configuration honestly; ask only for genuinely missing input and do not call a local implementation live until verified.
 
+## External contribution follow-up
+
+When I ask to fix CI, address review comments, or resolve conflicts for an
+external contribution, identify my relevant PR using the current repository,
+branch, GitHub account `apoorvdarshan`, and any link or number I provide. Look
+for open PRs authored by `apoorvdarshan` by default. Ignore closed or merged PRs
+unless I explicitly reference one. Read the PR description, diff, review
+threads, failed-check logs, and applicable repository instructions to recover
+context without requiring the original chat.
+
+Make focused fixes on the existing PR branch, preserve unrelated work, run
+appropriate checks, and push to update that same PR. Verify the resulting CI
+status. Don’t create a duplicate PR, close it, or merge into the upstream
+repository unless I explicitly ask. If multiple PRs could match, ask which one.
+
 ## Profile, website, and resume synchronization
 
 When creating or working on my own project, check whether it is already listed
