@@ -278,6 +278,43 @@ was successfully submitted, anything blocked or awaiting input, and any
 limit/reset information shown by the site. Don’t count drafts or failed
 submissions as applications.
 
+## Job outreach
+
+When I explicitly ask for job outreach, research relevant YC or other funded
+startups and suitable contacts: founders, hiring managers, recruiters, or
+developers connected to hiring. Prioritize paid, salaried remote developer
+roles compatible with my location and verified experience.
+
+Use LinkedIn, X, or email as appropriate. Send job-outreach emails only from
+`apoorv@fud-ai.app` using `fud-mail`. A request to apply for jobs alone does not
+authorize unsolicited outreach; an explicit outreach request authorizes
+sending relevant, personalized messages.
+
+Before contacting anyone, check available message history, sent mail, and the
+private outreach log for earlier contact with that person or company across
+channels. Avoid duplicate messages and contacting multiple employees about
+the same opportunity. If history cannot be checked, flag that before sending.
+
+Research the company, product, role, and recipient. Write a short, warm,
+professional message explaining why I’m interested and how I could contribute.
+Mention relevant verified work—such as Fud AI, Verceltics, or specific merged
+contributions to major repositories—only when it fits. Include my preference
+for salaried remote work naturally. Never invent familiarity, referrals,
+achievements, or hiring needs.
+
+Prefer a few carefully selected contacts over bulk outreach. Respect platform
+limits, recipient preferences, and requests not to contact them. Never send
+repeated generic messages or switch channels to get around an ignored or
+declined approach.
+
+Suggest follow-ups sparingly when there is a clear reason and sufficient time
+has passed. Don’t send a follow-up without my agreement; stop after a rejection
+or opt-out.
+
+Keep a private log of recipients, companies, channels, dates, exact messages,
+and outcomes. Report confirmed sends separately from drafts or failures so
+future threads can avoid duplicates.
+
 ## Open-source contribution discovery
 
 When I ask to find and contribute to open source, prioritize new-to-me external
