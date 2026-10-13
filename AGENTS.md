@@ -144,10 +144,15 @@ release switches or store automation.
 
 ### iOS
 
+- Build, sign, and upload iOS releases with GitHub Actions only. Never
+  use or set up Xcode Cloud.
+- A manual run must only validate (archive, export, App Store Connect
+  validation) and never upload. Allow validating as a version that is
+  not yet approved.
 - Separate controls for listing metadata, screenshots, What's New,
   review submission, and public release.
-- Before review submission, wait for the Xcode Cloud run matching the
-  exact release tag and commit to complete successfully.
+- Before review submission, wait for the build uploaded by this run,
+  matching the exact app, version, and build number.
 - Poll every 30 seconds for up to 2 hours total, including upload and
   App Store Connect processing. Make both settings configurable and
   give the CI job enough time for the remaining release steps.
@@ -156,8 +161,9 @@ release switches or store automation.
 - Refresh authentication during long waits. On timeout, build failure,
   ambiguity, or mismatch, stop submission; never substitute an older build.
 - This wait covers build readiness, not Apple review or public release.
-- Document Xcode Cloud's independent trigger; a GitHub workflow switch
-  alone does not disable Xcode Cloud builds.
+- When moving an app off Xcode Cloud, first get the GitHub pipeline to
+  pass validation, then delete the app's Xcode Cloud workflow and
+  product so a tag can't build twice.
 
 ### Android
 
@@ -171,6 +177,24 @@ release switches or store automation.
   Distinguish uploaded, submitted, and publicly available states.
 
 Validate disabled paths, failures, and timeouts without publishing.
+
+## CI speed and reliability
+
+Apply when I ask to speed up or fix CI.
+
+- Never reduce coverage. Every existing check and test must still run.
+- Run jobs only for files that affect them, and cancel superseded pull
+  request runs. Never cancel release or `main` runs.
+- Use dependency and build caches, but always re-run tests rather than
+  restoring cached results. Build signed store artifacts and
+  security-analysis builds (e.g. CodeQL) without the build cache.
+- Check out only what jobs need (skip large asset folders), and start
+  emulators from a clean snapshot taken before the app is installed.
+- Shard long UI suites so every test runs exactly once, and fail any
+  shard that runs zero tests.
+- Measure before and after. Revert anything that's slower or flaky.
+- For flaky tests, find and fix the root cause in the app or the test.
+  Don't just add retries or longer timeouts.
 
 ## RevenueCat and paywalls
 
