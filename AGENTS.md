@@ -42,7 +42,7 @@ Apply these rules only when I explicitly ask you to market or promote a product.
 
 # Device install (mobile app development only)
 
-Apply this **only** to work on **installable mobile apps** (iOS/Android, e.g. Fud AI / calorietracker) when the change affects what runs on device.
+Apply this **only** to work on **installable mobile apps** (iOS/Android) when the change affects what runs on device. Fud AI (repo `fud-ai`, Xcode project `calorietracker`) is the example below; apply the same patterns to every mobile app with its own names and IDs.
 
 This policy does **not** apply to anything else. Never rebuild, install, relaunch, or open a non-mobile target because of this policy — that includes macOS/desktop apps (e.g. Browser Cookie Bridge), Electron/CLI tools, browser extensions, backend services, web apps, and libraries. For those, build/test only what the task needs and finish; do not touch system installs unless I explicitly ask.
 
@@ -52,30 +52,29 @@ Personal test installs for Apoorv only — not App Store / Play Store release sh
 
 ## Default: iOS Release, Android Debug (preserve data)
 
-After every code change that affects the **mobile** apps, rebuild, install, and open on my connected phones before finishing (unless I explicitly say not to or a device is disconnected):
+After every code change that affects a **mobile** app, rebuild, install, and open it on my connected phones before finishing (unless I explicitly say not to or a device is disconnected):
 
 - **iOS**: Release build only. Install over the existing App Store / prior install. Never uninstall first.
-- **iOS DerivedData (critical, Fud AI / calorietracker)**: Always reuse a stable path — prefer `~/Library/Developer/Xcode/DerivedData/calorietracker-device-release` with `-derivedDataPath`. Never `rm -rf` DerivedData before a normal install build, and never invent a fresh `/tmp/...` tree each attempt. Cold Release rebuilds of heavy SPM deps (e.g. RevenueCat) take 15–30+ min; wiping forces that every time. Incremental reuse is required.
-- **Android default: Debug (side-by-side)**: Build and install the dedicated **Fud AI Debug** app (`com.apoorvdarshan.calorietracker.debug`) with `adb install -r`, then launch it with `am start`. Keep the Debug app's existing data by default; wipe it only when I ask for a fresh or onboarding test (see Fresh Debug installs below). Never uninstall, overwrite, or clear the Play-installed release app (`com.apoorvdarshan.calorietracker`).
+- **iOS DerivedData (critical)**: Always reuse a stable path per app — `~/Library/Developer/Xcode/DerivedData/<project>-device-release` with `-derivedDataPath` (Fud AI: `calorietracker-device-release`). Never `rm -rf` DerivedData before a normal install build, and never invent a fresh `/tmp/...` tree each attempt. Cold Release rebuilds of heavy SPM deps (e.g. RevenueCat) take 15–30+ min; wiping forces that every time. Incremental reuse is required.
+- **Android default: Debug (side-by-side)**: Build and install the app's dedicated Debug variant (package `<release id>.debug`, launcher name `<App name> Debug`) with `adb install -r`, then launch it. Keep the Debug app's existing data by default; wipe it only when I ask for a fresh or onboarding test (see Fresh Debug installs below). Never uninstall, overwrite, or clear the Play-installed release app. If an app has no Debug variant with its own package ID yet, ask before adding one.
 - **Android Release testing: Play internal testing only**: Test Release behavior, including purchases, through Google Play internal testing builds, not sideloaded Release APKs (a locally signed Release cannot update the Play-signed app). Uploading to a Play testing track is an external publish — do it only when I ask.
-- **Fud AI package IDs**: iOS release `com.apoorvdarshan.calorietracker`; Android default installs use debug `com.apoorvdarshan.calorietracker.debug` — launch after install.
-- **Android launch (critical)**: Never use `adb shell monkey` to open the app. On this phone, monkey flips system auto-rotate on (`accelerometer_rotation=1`) even when portrait is locked. Launch with `am start` instead, e.g. `adb shell am start -a android.intent.action.MAIN -c android.intent.category.LAUNCHER -p com.apoorvdarshan.calorietracker.debug`. Do not change rotation / auto-rotate settings unless I ask.
+- **Android launch (critical)**: Never use `adb shell monkey` to open an app. On this phone, monkey flips system auto-rotate on (`accelerometer_rotation=1`) even when portrait is locked. Launch with `am start` instead, e.g. `adb shell am start -a android.intent.action.MAIN -c android.intent.category.LAUNCHER -p <debug package>`. If `-p` cannot resolve the launcher (e.g. an activity-alias icon), resolve it with `adb shell cmd package resolve-activity --brief -a android.intent.action.MAIN -c android.intent.category.LAUNCHER <package>` and start that component with `adb shell am start -n <component>`. Do not change rotation / auto-rotate settings unless I ask.
 - Preserve existing on-device **release** data (and, by default, Android Debug data) unless I explicitly ask to wipe or reinstall clean.
 - Prefer the currently connected device (Apoorv’s iPhone / USB Android) when installing.
 - After promoting app assets (e.g. workout images), rebuild so they are in the binary before install; spot-check a sample asset in the build artifact when relevant.
+- **Example — Fud AI IDs**: release `com.apoorvdarshan.calorietracker` (iOS + Android); Debug `com.apoorvdarshan.calorietracker.debug`, launcher name `Fud AI Debug`.
 
 ## Fresh Debug installs (only when I ask)
 
 When I **explicitly** ask for a debug build/install on iOS, or for a fresh/onboarding Debug install on either platform (e.g. to test onboarding once):
 
-- Use the dedicated **debug** app identity — do **not** install debug over the release/Play/App Store app.
-- **Launcher name must be `Fud AI Debug`** (not plain `Fud AI`) so it is visually distinct next to release. Keep that name on both platforms.
-- **Same debug app every time** — overwrite the existing **Fud AI Debug** install (same icon / same debug package). Do **not** create a second debug copy (no extra `.debug2` / duplicate icons unless I ask).
-- **Fresh data** — always wipe the **debug** app’s data before or as part of install so onboarding and first-run flows can be tested cleanly. Do **not** wipe release app data.
-  - **Android**: clear/wipe `com.apoorvdarshan.calorietracker.debug` (e.g. `adb shell pm clear …` and/or uninstall that debug package only), then `adb install -r` the debug APK; launch the debug package.
-  - **iOS**: uninstall only `com.apoorvdarshan.calorietracker.debug` (or otherwise reset that debug app’s container), then install Debug over that same bundle id; launch the debug app. Never uninstall the release `com.apoorvdarshan.calorietracker` app for this.
-- **iOS Debug DerivedData**: reuse a stable debug path such as `~/Library/Developer/Xcode/DerivedData/calorietracker-device-debug` — still don’t invent a new `/tmp/...` tree each attempt.
-- Package IDs: debug `com.apoorvdarshan.calorietracker.debug` (iOS + Android).
+- Use the app's dedicated **Debug** identity (`<release id>.debug`) — do **not** install Debug over the release/Play/App Store app.
+- **Launcher name must be `<App name> Debug`** (e.g. `Fud AI Debug`, not plain `Fud AI`) so it is visually distinct next to release. Keep that name on both platforms.
+- **Same Debug app every time** — overwrite the app's existing Debug install (same icon / same debug package). Do **not** create a second Debug copy (no extra `.debug2` / duplicate icons unless I ask).
+- **Fresh data** — always wipe the **Debug** app’s data before or as part of install so onboarding and first-run flows can be tested cleanly. Do **not** wipe release app data.
+  - **Android**: clear/wipe `<release id>.debug` (e.g. `adb shell pm clear …` and/or uninstall that debug package only), then `adb install -r` the debug APK; launch the debug package.
+  - **iOS**: uninstall only `<release id>.debug` (or otherwise reset that Debug app’s container), then install Debug over that same bundle id; launch the Debug app. Never uninstall the release app for this.
+- **iOS Debug DerivedData**: reuse a stable debug path per app, e.g. `~/Library/Developer/Xcode/DerivedData/<project>-device-debug` (Fud AI: `calorietracker-device-debug`) — still don’t invent a new `/tmp/...` tree each attempt.
 
 ## Hosting and domains
 
