@@ -135,20 +135,26 @@ Apply only when I explicitly request creating or changing iOS/Android
 release switches or store automation.
 
 - Give each platform its own master switch and separate controls for
-  individual store operations. New switches default to off; missing
-  settings mean disabled; reject invalid values.
+  individual store operations. Prefix names by platform (`IOS_*`,
+  `ANDROID_*`; `STORE_*` only for shared ones). New switches default to
+  off; missing settings mean disabled; reject invalid values, even when
+  the master switch is off.
+- Release runs come from a tag that must match the app's version. A
+  manual run only validates (build, sign, verify) and never uploads or
+  releases.
 - Document exactly what each switch controls. Store listing updates
   need their own gate, even when binary upload or rollout is disabled.
 - Creating or testing this automation does not itself authorize
   submitting or publishing an app.
+- Fud AI (`fud-ai`, `store/README.md`) is the reference setup.
 
 ### iOS
 
 - Build, sign, and upload iOS releases with GitHub Actions only. Never
   use or set up Xcode Cloud.
-- A manual run must only validate (archive, export, App Store Connect
-  validation) and never upload. Allow validating as a version that is
-  not yet approved.
+- A manual run validates by archiving, exporting, and validating with
+  App Store Connect. Allow validating as a version that is not yet
+  approved.
 - Separate controls for listing metadata, screenshots, What's New,
   review submission, and public release.
 - Before review submission, wait for the build uploaded by this run,
@@ -167,10 +173,13 @@ release switches or store automation.
 
 ### Android
 
-- Separate controls for signed artifact builds, listing metadata,
-  screenshots, What's New, binary upload, and production rollout.
-- Default the Play destination to none. Support explicitly configured
-  testing tracks; production must require explicit opt-in.
+- Master switch off: a tag builds and releases nothing. On: build,
+  verify, and sign the release artifacts and create the GitHub Release.
+- Separate controls for listing metadata, screenshots, What's New, and
+  each Play track: internal testing, closed testing, and production.
+- Track switches are independent and default to off; testing tracks
+  never imply production. Upload once to every selected track. What's
+  New needs a selected track.
 - Validate the app identity, version, signing, and intended artifact
   before upload. Never silently fall back to production.
 - Verify the upload and track update before reporting success.
