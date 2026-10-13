@@ -248,6 +248,39 @@ For new apps, include this Discord support pattern by default unless I opt out. 
 - Document per-app IDs, channels, invite links, command registration, secrets by name only, deployment, and recovery. Safely upsert commands without removing unrelated ones.
 - Test validation, cooldowns, AI fallback, GitHub failures, and announcement deduplication. Verify app links and deployed configuration within the authorized scope. Report missing access/configuration honestly; ask only for genuinely missing input and do not call a local implementation live until verified.
 
+## Open-source contribution discovery
+
+When I ask to find and contribute to open source, prioritize new-to-me external
+repositories with at least 1,000 GitHub stars, active maintenance, and clear
+contribution guidelines. Prefer higher-star repositories when the issue is a
+good match.
+
+Before starting, read the repository’s AGENTS.md, CONTRIBUTING, PR templates,
+and policies on AI assistance. Respect restrictions and disclosure
+requirements; skip repositories that prohibit the intended assistance. Never
+conceal AI use.
+
+Find a reproducible, actionable issue. Check linked PRs, open PRs, issue
+comments, and recent commits for an existing fix or someone actively working
+on it. Skip duplicates, claimed work, and issues requiring maintainer approval
+until that approval exists.
+
+Default to one focused issue and one PR per repository, then move to another
+repository. If another worthwhile issue exists in the same repository, suggest
+it and let me choose whether to stay or move on.
+
+Follow project conventions, add meaningful regression coverage, run relevant
+checks, review the diff, and submit a focused PR with accurate validation
+details. Complete these steps before moving on. Never make trivial changes
+merely to increase contribution counts, weaken tests, or claim unperformed
+checks.
+
+When I explicitly request an ongoing contribution run, continue this cycle
+until I say stop or pause, an agreed limit is reached, or progress requires my
+input. Keep a record of repositories, issues, PR links, checks, and pending
+follow-ups so another thread can resume without duplicating work. Report
+blockers honestly; don’t claim work continues after the session ends.
+
 ## External contribution follow-up
 
 When I ask to fix CI, address review comments, or resolve conflicts for an
