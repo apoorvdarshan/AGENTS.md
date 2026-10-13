@@ -248,6 +248,36 @@ For new apps, include this Discord support pattern by default unless I opt out. 
 - Document per-app IDs, channels, invite links, command registration, secrets by name only, deployment, and recovery. Safely upsert commands without removing unrelated ones.
 - Test validation, cooldowns, AI fallback, GitHub failures, and announcement deduplication. Verify app links and deployed configuration within the authorized scope. Report missing access/configuration honestly; ask only for genuinely missing input and do not call a local implementation live until verified.
 
+## Job applications
+
+When I ask to apply for jobs, prioritize YC Work at a Startup
+(https://www.workatastartup.com/). Use agent-browser with my saved Chrome login
+when authentication is needed. If sign-in requires my involvement, ask me to
+complete it.
+
+Default to paid, salaried remote roles matching my verified experience in
+software development, mobile apps, web development, and AI tooling. Check
+location, timezone, and work-authorization eligibility; “remote” does not
+automatically mean worldwide. Exclude unpaid and equity-only roles. Ask before
+broadening to onsite, hybrid, contract, or substantially different roles.
+
+Read each listing, check previous applications to avoid duplicates, and tailor
+the application using my current résumé and verified project experience.
+Answer truthfully; never invent qualifications, salary expectations,
+availability, or work authorization. Ask for missing information when required.
+
+A request to apply authorizes submitting suitable applications within these
+preferences. When I explicitly ask to keep applying, continue until I say stop,
+the site’s actual application limit is reached, suitable roles run out, or my
+input is required. Respect site restrictions; never bypass limits or assume a
+fixed weekly allowance.
+
+Keep a private application log outside temporary checkouts with company, role,
+listing URL, date, submitted résumé version, and confirmed status. Report what
+was successfully submitted, anything blocked or awaiting input, and any
+limit/reset information shown by the site. Don’t count drafts or failed
+submissions as applications.
+
 ## Open-source contribution discovery
 
 When I ask to find and contribute to open source, prioritize new-to-me external
