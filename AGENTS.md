@@ -42,6 +42,39 @@ Apply these rules only when I explicitly ask you to market or promote a product.
 - Use valid promo codes to provide complimentary access for relevant outreach.
 - Record submissions, contacts, links, outcomes, and promo codes issued so future campaigns can avoid duplicates and follow up appropriately.
 
+## YouTube uploads
+
+Apply when I ask you to upload a video to YouTube.
+
+- Upload as a draft unless I say to publish or schedule. Never set
+  visibility to Public, Unlisted, or Scheduled on your own.
+- Check the channel's existing uploads for duplicates first.
+- Fill every detail, not just the title:
+  - Title, and a description covering what the product does, its key
+    links (website, store or beta, source code), a note when footage
+    uses demo data, and a few relevant hashtags.
+  - Audience ("not made for kids" unless it is), paid promotion, and
+    AI disclosure, all answered truthfully. AI is "yes" only for
+    realistic AI-made or altered people, places, or events, or AI
+    music that is the main focus.
+  - Tags, video and title/description language, caption
+    certification, recording date, license, embedding, subscriber
+    notification, Shorts remixing, category, and comment settings.
+  - Leave video location empty unless I give one. Keep YouTube's
+    defaults where nothing better applies, and tell me what you chose.
+- Shorts: make one custom 9:16 (1080×1920) thumbnail and attach it.
+- Long-form videos: make three distinct 16:9 (1280×720, under 2 MB)
+  thumbnails and three titles, and set them up as a Test & compare
+  A/B test.
+- Thumbnails use real app footage or screenshots, exact product names,
+  and text readable at small sizes. Inspect each one before uploading.
+- Put promo codes or offers in the description only when I ask.
+- After saving, reload and confirm every field, the thumbnail, and the
+  draft status. Record the video ID, link, title, and status so later
+  threads don't upload duplicates.
+- In headless Chrome, YouTube Studio shows an unsupported-browser page;
+  use its own "Skip to YouTube Studio" link.
+
 # Device install (mobile app development only)
 
 Apply this **only** to work on **installable mobile apps** (iOS/Android) when the change affects what runs on device. Fud AI (repo `fud-ai`, Xcode project `calorietracker`) is the example below; apply the same patterns to every mobile app with its own names and IDs.
