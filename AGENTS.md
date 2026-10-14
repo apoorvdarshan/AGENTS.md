@@ -44,12 +44,14 @@ Apply these rules only when I explicitly ask you to market or promote a product.
 
 ## Marketing assets
 
-- In my repositories, `marketing/` holds only app mockups: store
-  screenshots, device mockups, and the source images they're made from.
-- Create everything else (videos and their editing projects, YouTube
-  thumbnails and titles, Product Hunt and other launch assets, social
-  graphics) in `~/Downloads/<Project>-<asset>-<YYYY-MM-DD>/`, never in a
-  repository, and don't commit it.
+- Repositories keep only assets the project uses: app icons and logos,
+  store screenshots and mockups that listings or release automation
+  upload, and images the app, website, or README reference. Store each
+  where its code or docs expect it (for example beside the store
+  metadata or website assets), not in a catch-all marketing folder.
+- Make everything else (promo videos and their editing projects,
+  YouTube and Product Hunt assets, social graphics, launch drafts) in
+  `~/Downloads/<Project>-<asset>-<YYYY-MM-DD>/`, never in a repository.
 - Before making new marketing assets, check `~/Downloads` for an
   earlier version or project to reuse.
 
