@@ -88,6 +88,24 @@ When creating or setting up my project repositories, populate the GitHub About s
 
 When creating or working on my own project repositories, check whether I'm watching **All Activity**. If already enabled, say nothing. Otherwise, suggest enabling it; change it only when I agree. Exclude third-party forks, contribution-only repositories, and temporary/test projects unless asked.
 
+## GitHub repository security and CI
+
+Apply to my own repositories.
+
+- Before making a private repository public (only when I ask), scan its
+  full git history for secrets. Revoke, or confirm dead, anything found,
+  then turn on secret scanning and push protection.
+- Keep Dependabot alerts on in every repository. Cover every dependency
+  file, including website folders, without overlapping entries.
+- Treat critical security alerts in a deployed website or backend as
+  urgent: tell me and suggest the upgrade and redeploy.
+- When merging my PRs, merge exactly the commit that passed CI
+  (`--match-head-commit`). Before merging, fix valid bot review comments,
+  reply, and resolve the threads.
+- On private repositories, Mac runner minutes count 10× against the
+  monthly GitHub Actions quota. Run Mac jobs only for relevant file
+  changes, and warn me before the quota runs out.
+
 ## OpenSSF badges and security practices
 
 Apply this workflow when I explicitly request OpenSSF badges, passing
@@ -144,6 +162,8 @@ release switches or store automation.
   releases.
 - Queue release runs one at a time. A newer run must never cancel or
   replace one that is waiting (GitHub's default does; set `queue: max`).
+- A release run must pass the app's unit and UI tests and the
+  release-script tests before building or uploading anything.
 - Run every check that can fail (secrets, release notes, metadata,
   versions) before building or uploading anything. What's New text is
   required only when What's New is on; a tag without release notes
@@ -199,7 +219,9 @@ release switches or store automation.
   never imply production. Upload once to every selected track. What's
   New needs a selected track.
 - Validate the app identity, version, signing, and intended artifact
-  before upload. Never silently fall back to production.
+  before upload: the build must be signed by the pinned upload
+  certificate, and its version code must be higher than any already on
+  Play. Never silently fall back to production.
 - Verify the upload and track update before reporting success.
   Distinguish uploaded, submitted, and publicly available states.
 
@@ -218,8 +240,11 @@ Check what already exists first, and set it up only when I agree. Fud AI
 When adding or changing CI, keep it fast without losing coverage:
 
 - Never reduce coverage. Every existing check and test must still run.
+- Run app and UI tests only in GitHub Actions, never on a local
+  simulator or emulator, unless I agree to a local run first. The app's
+  sound plays on my Mac.
 - Run jobs only for files that affect them, and cancel superseded pull
-  request runs. Never cancel release or `main` runs.
+  request runs. Never cancel release, `main`, manual, or scheduled runs.
 - Use dependency and build caches, but always re-run tests rather than
   restoring cached results. Build signed store artifacts and
   security-analysis builds (e.g. CodeQL) without the build cache.
@@ -252,9 +277,9 @@ Apply when I request subscriptions, in-app purchases, or RevenueCat/paywall setu
 Apply when I request store or billing setup involving RevenueCat, App Store Connect, or Google Play.
 
 - Preserve existing working credentials unless I request migration or rotation.
-- For new integrations, prefer dedicated, clearly named credentials with minimum permissions. Check for suitable existing credentials first; do not default to a shared Admin key.
+- For new integrations, prefer dedicated, clearly named credentials with minimum permissions. Check for suitable existing credentials first; do not default to a shared Admin key (except the Google Play account below).
 - Apple: distinguish App Store Connect API keys from In-App Purchase keys. Compatible keys may be reused across apps in the same account; separate team API keys do not restrict access to individual apps.
-- Google Play: prefer a dedicated service account for each integration, granting only the required app access and permissions.
+- Google Play: use the shared `play-publisher@fudai-play-publisher-2026` service account for all my Android apps. It has account-wide access, so new apps need no per-app grant. Store its key as each repository's `PLAY_SERVICE_ACCOUNT_JSON` secret. Create a dedicated account only when I ask.
 - RevenueCat: use the correct project and app/platform public SDK keys. Create secret API keys only when needed, with appropriate permissions.
 - During authorized setup, create and configure necessary credentials when access permits. Store private keys securely, document credential names and purpose only, and verify access without exposing secrets. Ask only for genuinely missing access or input.
 
