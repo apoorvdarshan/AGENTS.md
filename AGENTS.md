@@ -364,9 +364,10 @@ authorize unsolicited outreach; an explicit outreach request authorizes
 sending relevant, personalized messages.
 
 Before contacting anyone, check available message history, sent mail, and the
-private outreach log for earlier contact with that person or company across
-channels. Avoid duplicate messages and contacting multiple employees about
-the same opportunity. If history cannot be checked, flag that before sending.
+private outreach log (`~/private-outreach/`, never committed) for earlier
+contact with that person or company across channels. Avoid duplicate messages
+and contacting multiple employees about the same opportunity. If history cannot
+be checked, flag that before sending.
 
 Research the company, product, role, and recipient. Write a short, warm,
 professional message explaining why I’m interested and how I could contribute.
@@ -466,18 +467,22 @@ When I ask from any project to add, update, rename, or remove a project from my
 profile, maintain the GitHub profile, personal website, and applicable resume
 entry together unless I specify a narrower scope. The canonical public repo is
 `apoorvdarshan/apoorvdarshan`, normally at `~/apoorvdarshan`: root `README.md`,
-`website/`, and `resume/template/`. Read that repo's AGENTS.md and existing sync
-scripts before editing. `profile` and `rekisei` are archived; do not recreate
-those local checkouts or update them as active sources.
+`website/`, and `resume/` (including `resume/template/`). Read that repo's
+AGENTS.md and existing sync scripts before editing. `profile`, `rekisei` and
+`profile-resume-private` are archived; do not recreate those local checkouts or
+update them as active sources.
 
 “This project” means the repository currently being worked on. Inspect its
 README, GitHub About, and verified website for accurate details. Add it at the
 top of the best-fitting category unless I specify otherwise.
 
-Keep personal resume LaTeX and private data in `~/profile-resume-private`; only
-the verified PDF belongs in `website/public/`. Preserve Documents resume symlinks.
-Rebuild and inspect the PDF when resume content changes, commit/push the private
-source and verified output, sync/build/deploy the website, and verify public
+Personal resume LaTeX, its verified PDF/`build.json`, and the download-history
+snapshots live in the public repo's `resume/` folder (the former
+`profile-resume-private` repo is archived; don't recreate it). Never commit
+credentials or outreach logs. Preserve Documents resume symlinks into
+`~/apoorvdarshan/resume/`. Rebuild and inspect the PDF when resume content
+changes, commit/push the source and verified output with
+`website/public/Apoorv_Darshan_Resume.pdf`, deploy the website, and verify public
 results. Preserve curated ordering, factual metrics, and unrelated content.
 Connect, What I Use, and Agent Setup changes normally affect README and website
 only, not the resume. Follow existing repository protections and commit rules.
