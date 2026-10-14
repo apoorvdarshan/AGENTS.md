@@ -142,16 +142,32 @@ release switches or store automation.
 - Release runs come from a tag that must match the app's version. A
   manual run only validates (build, sign, verify) and never uploads or
   releases.
+- Queue release runs one at a time. A newer run must never cancel or
+  replace one that is waiting (GitHub's default does; set `queue: max`).
+- Run every check that can fail (secrets, release notes, metadata,
+  versions) before building or uploading anything. What's New text is
+  required only when What's New is on; a tag without release notes
+  still gets a GitHub Release with generated notes.
+- Make re-running a failed step safe: give long waits their own job, so
+  re-running a later step doesn't restart or expire them.
+- Remove credentials and credential IDs from logs and artifacts before
+  uploading them.
 - Document exactly what each switch controls. Store listing updates
   need their own gate, even when binary upload or rollout is disabled.
 - Creating or testing this automation does not itself authorize
   submitting or publishing an app.
-- Fud AI (`fud-ai`, `store/README.md`) is the reference setup.
+- Fud AI (`fud-ai`, `store/README.md`) is the reference setup. Keep
+  every app's release pipeline in sync: when you fix or improve one,
+  check every app that shares it, Fud AI included, and apply the change
+  there too.
 
 ### iOS
 
 - Build, sign, and upload iOS releases with GitHub Actions only. Never
   use or set up Xcode Cloud.
+- Reuse the shared CI signing certificate (see Fud AI's
+  `store/README.md`) and set up a new app's secrets as part of the
+  setup. Never create or rotate a certificate just to add an app.
 - A manual run validates by archiving, exporting, and validating with
   App Store Connect. Allow validating as a version that is not yet
   approved.
@@ -175,6 +191,8 @@ release switches or store automation.
 
 - Master switch off: a tag builds and releases nothing. On: build,
   verify, and sign the release artifacts and create the GitHub Release.
+  Mark it a pre-release unless production is selected, so a
+  testing-only build never shows as the latest release.
 - Separate controls for listing metadata, screenshots, What's New, and
   each Play track: internal testing, closed testing, and production.
 - Track switches are independent and default to off; testing tracks
@@ -212,6 +230,9 @@ When adding or changing CI, keep it fast without losing coverage:
 - Measure before and after. Revert anything that's slower or flaky.
 - For flaky tests, find and fix the root cause in the app or the test.
   Don't just add retries or longer timeouts.
+
+When you fix or improve one app's CI, check every app with the same
+setup, Fud AI included, and apply the change there too.
 
 ## RevenueCat and paywalls
 
