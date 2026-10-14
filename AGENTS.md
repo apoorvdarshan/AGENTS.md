@@ -184,6 +184,12 @@ certification, or Scorecard setup for a repository.
 - I am a sole maintainer. Never require another person's approval:
   required approving reviews must be zero; code-owner, last-push,
   and other extra approval requirements must be disabled.
+  Exception: keep GitHub's default extra approval for unattributed
+  changes (commits whose author email isn't linked to a GitHub
+  account) when the ruleset lets the admin role bypass through pull
+  requests; otherwise turn it off. When editing a ruleset through
+  the API, set this field explicitly, because leaving it out turns
+  it back on.
   PRs and passing automated checks may be required, but I must be
   able to merge my own PRs without another reviewer.
 - Follow repository protections: use branches and PRs when necessary,
