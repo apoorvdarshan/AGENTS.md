@@ -42,6 +42,17 @@ Apply these rules only when I explicitly ask you to market or promote a product.
 - Use valid promo codes to provide complimentary access for relevant outreach.
 - Record submissions, contacts, links, outcomes, and promo codes issued so future campaigns can avoid duplicates and follow up appropriately.
 
+## Marketing assets
+
+- In my repositories, `marketing/` holds only app mockups: store
+  screenshots, device mockups, and the source images they're made from.
+- Create everything else (videos and their editing projects, YouTube
+  thumbnails and titles, Product Hunt and other launch assets, social
+  graphics) in `~/Downloads/<Project>-<asset>-<YYYY-MM-DD>/`, never in a
+  repository, and don't commit it.
+- Before making new marketing assets, check `~/Downloads` for an
+  earlier version or project to reuse.
+
 ## YouTube uploads
 
 Apply when I ask you to upload a video to YouTube.
