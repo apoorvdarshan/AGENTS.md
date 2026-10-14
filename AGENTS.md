@@ -69,6 +69,11 @@ Apply when I ask you to upload a video to YouTube.
 - Thumbnails use real app footage or screenshots, exact product names,
   and text readable at small sizes. Inspect each one before uploading.
 - Put promo codes or offers in the description only when I ask.
+- When a video goes public (I ask you to publish it or tell you it's
+  live), suggest a comment with the key links and a one-line call to
+  action; post and pin it only after I agree. Comments can't be posted
+  on drafts. Links in Shorts comments aren't clickable, so keep them
+  short and readable.
 - After saving, reload and confirm every field, the thumbnail, and the
   draft status. Record the video ID, link, title, and status so later
   threads don't upload duplicates.
