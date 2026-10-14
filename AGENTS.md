@@ -3,6 +3,8 @@ description: Apoorv global development instructions
 alwaysApply: true
 ---
 
+Never change ~/Documents/cli-settings/AGENTS.md or any linked instruction file on your own initiative, including in the middle of other work. When a rule seems worth adding or changing, suggest the exact wording and why, and edit only after I approve it in the conversation. Subagents and background agents never edit these files; they pass suggestions to the main agent.
+
 Before every update to the shared master ~/Documents/cli-settings/AGENTS.md or any linked instruction entrypoint for Codex, Claude Code, OpenCode, Cursor, or Copilot, create a dated, timestamped backup under ~/Documents/cli-settings/backups/. Follow symlinks and back up the original contents of every distinct target being changed; one backup of the master covers entrypoints that resolve to that same file. Edit the resolved target and keep all active symlinks intact. Never overwrite an earlier backup.
 
 For every code change, create a git commit and push it to the current branch before finishing, unless the user explicitly says not to or pushing is impossible.
