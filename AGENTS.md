@@ -348,6 +348,30 @@ Apply when I request subscriptions, in-app purchases, or RevenueCat/paywall setu
 - Setup and testing do not authorize real charges, store submission, or public release.
 - Whenever adding paid features, subscriptions, purchases, or tip/donation IAPs, suggest adding the app to my TrustMRR profile (`https://trustmrr.com/founder/apoorvdarshan`). Check for an existing listing first; proceed with setup when I authorize it.
 
+## Credentials and Bitwarden
+
+When a task needs a credential (API key, token, key file, password), check
+my Bitwarden vault with the `bw` CLI before asking me for it.
+
+- Unlock with the saved session:
+  `export BW_SESSION=$(security find-generic-password -a "$USER" -s bw-cli-session -w)`
+  (reading Keychain may need to run outside the sandbox). Never run `bw lock`,
+  `bw logout`, or `bw login`; if the session stops working, tell me.
+- Developer secrets are secure notes named `API · <service>`, each holding
+  the original file's contents. Find them with `bw list items --search "API ·"`
+  and read them with `bw get notes <id>`. Binary files (keystores) are stored
+  as base64.
+- Never print secret values in output, logs, or chat. Pass them straight to
+  the command or secret store that needs them (`gh secret set`,
+  `wrangler secret put`, env vars). If a tool needs a file, write it with
+  600 permissions outside repositories and iCloud folders, then delete it
+  when done.
+- Only read the vault by default. Add, edit, or delete items only when I ask,
+  or when saving a credential created during setup I authorized; save those
+  as new `API · <service>` secure notes (free plan: no folders or attachments).
+- Never save secrets as plain files in ~/Documents, ~/Desktop, or other
+  iCloud-synced folders.
+
 ## Store and billing credentials
 
 Apply when I request store or billing setup involving RevenueCat, App Store Connect, or Google Play.
