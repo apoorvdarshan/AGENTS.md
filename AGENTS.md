@@ -175,6 +175,10 @@ certification, or Scorecard setup for a repository.
 - Also configure OpenSSF Scorecard, publish its results, and improve
   actionable findings with appropriate dependency updates, security
   analysis, meaningful fuzz testing, CI, and branch protections.
+- On iOS apps, run CodeQL Swift (macOS build) only weekly, on release
+  tags, and on demand, never on pull requests or pushes to main, and
+  never make it a required check. Linux CodeQL languages still run on
+  every pull request.
 - Check GitHub’s Community Standards checklist and suggest adding any
   missing code of conduct, issue templates (bug report and feature request),
   and pull request template. Tailor them to the repository and its
