@@ -338,6 +338,9 @@ When adding or changing CI, keep it fast without losing coverage:
   emulators from a clean snapshot taken before the app is installed.
 - Shard long UI suites so every test runs exactly once, and fail any
   shard that runs zero tests.
+- Pass `-collect-test-diagnostics never` to `xcodebuild test`. Otherwise
+  it can spend 10 minutes after passing tests timing out while
+  collecting simulator diagnostics.
 - Measure before and after. Revert anything that's slower or flaky.
 - For flaky tests, find and fix the root cause in the app or the test.
   Don't just add retries or longer timeouts.
