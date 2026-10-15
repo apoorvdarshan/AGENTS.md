@@ -264,6 +264,11 @@ release switches or store automation.
 - A tag run creates the App Store version for its tag when it doesn't
   exist yet (`IOS_CREATE_VERSION`, also on by default), before the
   preflight. Never create a version with any other number.
+- Declare export compliance in each app's Info.plist
+  (`ITSAppUsesNonExemptEncryption`), so a build never waits on a manual
+  answer. Set it to NO only after checking the app uses no encryption
+  beyond HTTPS and Apple's system APIs; otherwise ask me. The release
+  run checks for the key right after archiving.
 - Before review submission, wait for the build uploaded by this run,
   matching the exact app, version, and build number.
 - Poll every 30 seconds for up to 2 hours total, including upload and
