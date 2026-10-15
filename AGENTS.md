@@ -256,9 +256,11 @@ release switches or store automation.
   approved.
 - Separate controls for listing metadata, screenshots, What's New,
   review submission, and public release.
-- Turn on public release (`IOS_PUBLIC_RELEASE`) in every app, so a
+- Turn on public release (`IOS_PUBLIC_RELEASE`) for new apps, so a
   version goes live as soon as Apple approves it. This is an exception
-  to new switches defaulting to off.
+  to new switches defaulting to off. For an existing app where it's
+  off, suggest turning it on (with review submission and What's New,
+  which it needs); change it only when I agree.
 - A tag run creates the App Store version for its tag when it doesn't
   exist yet (`IOS_CREATE_VERSION`, also on by default), before the
   preflight. Never create a version with any other number.
