@@ -367,6 +367,20 @@ Prefer verified website or repository links for legal pages, licenses, documenta
 
 Reuse the app’s existing website and verified Privacy and Terms URLs. If they’re missing, suggest creating an app website at `<app-name>.apoorvdarshan.com`, using a suitable subdomain based on the app’s name. Get my approval before setup or publishing. Use my existing Cloudflare setup and add only the configuration needed for that subdomain. Preserve the main domain, other DNS records, routes, and hosted apps. Ask before modifying conflicting existing configuration. Verify the published pages before linking them from the app.
 
+## App ratings and sharing
+
+Suggest these for new mobile apps, or existing ones that lack them; add
+only when I agree.
+
+- Rate button: on iOS, show the native review prompt, falling back to the
+  App Store review page when it was asked recently. On Android, open the
+  Play listing.
+- Auto prompt: only after a positive moment, never at launch or mid-task;
+  after 3 days of use, once per version, at most every 122 days.
+- Share button: system share sheet with the store link.
+- Never gate the prompt on "Do you like the app?", reward ratings, or
+  lock features behind them.
+
 ## LinkedIn product pages
 
 When creating a new app or product, especially a developer/business tool, suggest a LinkedIn Showcase Page under my Fud AI company page (`https://www.linkedin.com/company/fud-ai-app`) when relevant to its audience. Check for an existing page first; create it only when I authorize setup, then use that product's verified LinkedIn link.
