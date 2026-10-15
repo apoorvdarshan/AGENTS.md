@@ -319,6 +319,10 @@ When adding or changing CI, keep it fast without losing coverage:
 - Run app and UI tests only in GitHub Actions, never on a local
   simulator or emulator, unless I agree to a local run first. The app's
   sound plays on my Mac.
+- For UI screenshots or visual checks, you may use a local simulator
+  or emulator without asking. Boot it headless (`xcrun simctl`; Android
+  emulator with `-no-window -no-audio`), capture what you need, and
+  shut it down when finished. Tests still run only in GitHub Actions.
 - Run jobs only for files that affect them, and cancel superseded pull
   request runs. Never cancel release, `main`, manual, or scheduled runs.
 - Use dependency and build caches, but always re-run tests rather than
