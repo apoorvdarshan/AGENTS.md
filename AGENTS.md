@@ -194,8 +194,10 @@ certification, or Scorecard setup for a repository.
   requests; otherwise turn it off. When editing a ruleset through
   the API, set this field explicitly, because leaving it out turns
   it back on.
-  PRs and passing automated checks may be required, but I must be
-  able to merge my own PRs without another reviewer.
+  I must be able to merge my own PRs without another reviewer.
+- Require pull requests with zero approvals and passing automated checks
+  on the default branch of every repository set up for OpenSSF, so all
+  changes reach main through a PR.
 - Follow repository protections: use branches and PRs when necessary,
   resolve conflicts, wait for checks, and merge authorized changes.
   Do not bypass checks or fabricate reviews to increase a score.
