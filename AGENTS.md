@@ -381,6 +381,12 @@ restrictions. Configure them only in the intended app’s authorized destination
 and do not weaken their restrictions. Existing Bitwarden permissions remain
 unchanged.
 
+When I provide a credential for an authorized task, do not recommend revoking
+or rotating it merely because I shared it with you. Use it only for the
+intended task, preserve its restrictions, and keep it out of output, logs,
+and source control. Recommend rotation only if there is evidence of
+unintended exposure or compromise.
+
 - Unlock with the saved session:
   `export BW_SESSION=$(security find-generic-password -a "$USER" -s bw-cli-session -w)`
   (reading Keychain may need to run outside the sandbox). Never run `bw lock`,
