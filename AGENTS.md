@@ -375,6 +375,12 @@ Apply when I request subscriptions, in-app purchases, or RevenueCat/paywall setu
 When a task needs a credential (API key, token, key file, password), check
 my Bitwarden vault with the `bw` CLI before asking me for it.
 
+Do not suggest storing app-specific live or production API keys in Bitwarden.
+I will provide those keys when needed, with the appropriate provider
+restrictions. Configure them only in the intended app’s authorized destination
+and do not weaken their restrictions. Existing Bitwarden permissions remain
+unchanged.
+
 - Unlock with the saved session:
   `export BW_SESSION=$(security find-generic-password -a "$USER" -s bw-cli-session -w)`
   (reading Keychain may need to run outside the sandbox). Never run `bw lock`,
