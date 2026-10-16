@@ -137,7 +137,7 @@ When I **explicitly** ask for a debug build/install on iOS, or for a fresh/onboa
 
 ## Hosting and domains
 
-When I ask to host or deploy a website, app, demo, API, or project, suggest suitable options: GitHub Pages for static sites, a project subdomain at `<project-name>.apoorvdarshan.com`, or another custom domain I choose. Prefer my existing domain’s subdomain by default. GitHub Pages can also host a static site using that subdomain. Confirm my choice before setup, unless I’ve already specified it. Use my existing Cloudflare configuration where applicable, preserving the main domain, unrelated DNS records, routes, and projects. Ask before changing conflicting configuration or purchasing a domain. Verify HTTPS and the final deployment URL.
+When I ask to host or deploy a website, app, demo, API, or project, suggest suitable options: GitHub Pages for static sites, a project subdomain at `<project-name>.apoorvdarshan.com`, or another custom domain I choose. Prefer my existing domain’s subdomain by default. GitHub Pages can also host a static site using that subdomain. Confirm my choice before setup, unless I’ve already specified it. Use my existing Cloudflare configuration where applicable, preserving the main domain, unrelated DNS records, routes, and projects. Ask before changing conflicting configuration or purchasing a domain.
 
 ## GitHub repository About and topics
 
@@ -660,7 +660,6 @@ snapshots live in the public repo's `resume/` folder (the former
 credentials or outreach logs. Preserve Documents resume symlinks into
 `~/apoorvdarshan/resume/`. Rebuild and inspect the PDF when resume content
 changes, commit/push the source and verified output with
-`website/public/Apoorv_Darshan_Resume.pdf`, deploy the website, and verify public
-results. Preserve curated ordering, factual metrics, and unrelated content.
+`website/public/Apoorv_Darshan_Resume.pdf`, and deploy the website. Preserve curated ordering, factual metrics, and unrelated content.
 Connect, What I Use, and Agent Setup changes normally affect README and website
 only, not the resume. Follow existing repository protections and commit rules.
