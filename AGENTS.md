@@ -42,9 +42,12 @@ and avoid duplicate submissions when resuming. Keep my browser open afterward.
 Apply these rules only when I explicitly ask you to market or promote a product.
 
 - Prioritize X, YouTube, Product Hunt, Hacker News, LinkedIn, DEV (dev.to),
-  Bluesky, and Mastodon. Post on LinkedIn only through the official API (see
-  LinkedIn posting), never by browser automation, and never use it for DMs or
-  outreach. Publish on DEV, Bluesky, and Mastodon through their official APIs.
+  Bluesky, Mastodon, and Indie Hackers. Post on LinkedIn only through the
+  official API (see LinkedIn posting), never by browser automation, and never
+  use it for DMs or outreach. Publish on DEV, Bluesky, and Mastodon through
+  their official APIs. Indie Hackers has no posting API: post there from my
+  signed-in browser only after I approve the exact text, and stop if a bot
+  check appears.
 - Never suggest Reddit or use Reddit for marketing or promotion.
 - Also pursue relevant GitHub PRs, directories, newsletters, showcases, provider partnerships, creator outreach, and submission forms.
 - Check previous posts, submissions, and outreach for duplicates before acting.
