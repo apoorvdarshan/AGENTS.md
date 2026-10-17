@@ -44,7 +44,7 @@ Apply these rules only when I explicitly ask you to market or promote a product.
 - Prioritize X, YouTube, Product Hunt, Hacker News, LinkedIn, DEV (dev.to),
   Bluesky, Mastodon, Indie Hackers, daily.dev, and programming.dev. Post on
   LinkedIn only through the official API (see LinkedIn posting), never by
-  browser automation, and never use it for DMs or outreach. Publish on DEV,
+  browser automation, and never use it for DMs or outreach. Publish on X, DEV,
   Bluesky, and Mastodon through their official APIs. Use the Product Hunt API
   (`API · Product Hunt` in Bitwarden, the "Token" line) only to read, such as
   checking earlier launches. Post on Product Hunt, Hacker News, Indie Hackers,
@@ -485,10 +485,16 @@ Apply when I ask to post on LinkedIn, including as part of marketing.
 - After posting, open the post to confirm it is live and give me the link.
   Editing or deleting a published post is mine to do; give me the steps.
 
-## Bluesky and Mastodon posting
+## X, Bluesky, and Mastodon posting
 
-Apply when I ask to post on Bluesky or Mastodon, including as part of marketing.
+Apply when I ask to post on X, Bluesky, or Mastodon, including as part of marketing.
 
+- X (`@apoorvdarshan`): post with `POST https://api.x.com/2/tweets` signed
+  with OAuth 1.0a, using the consumer key and secret and the access token and
+  secret in Bitwarden (`API · X`, the OAuth 1.0 lines). Calls are billed from
+  pay-per-use credits, so avoid unnecessary requests. Keep posts within 280
+  characters. The token can also read and send DMs; never send DMs or replies
+  on my behalf.
 - Bluesky (`@apoorvdarshan.com`): sign in on `https://bsky.social` with the
   app password in Bitwarden (`API · Bluesky app password`) via
   `com.atproto.server.createSession`, then post with
@@ -501,8 +507,9 @@ Apply when I ask to post on Bluesky or Mastodon, including as part of marketing.
   ask for more, and never send DMs or replies on my behalf.
 - Send credentials only in headers or request bodies, never in URLs, logs, or
   output.
-- Check earlier posts for duplicates, show me the exact text for each
-  platform, and post only after I approve it. Each post needs its own approval.
+- Check earlier posts for duplicates. Post on X without asking me first. For
+  Bluesky and Mastodon, show me the exact text and post only after I approve
+  it; each post needs its own approval.
 - After posting, open each post to confirm it is live and give me the links.
   Editing or deleting a published post is mine to do; give me the steps.
 
