@@ -532,7 +532,8 @@ startups and suitable contacts: founders, hiring managers, recruiters, or
 developers connected to hiring. Prioritize paid, salaried remote developer
 roles compatible with my location and verified experience.
 
-Use LinkedIn, X, or email as appropriate. Send job-outreach emails only from
+Use X or email as appropriate. Never use LinkedIn for outreach (its bot
+detection is too strict). Send job-outreach emails only from
 `apoorv@fud-ai.app`. Prefer the current app's built-in mail connector when it
 can send from that exact address; otherwise use Fud Mail (`fud-mail` MCP).
 Never substitute another sending account. A request to apply for jobs alone does not
