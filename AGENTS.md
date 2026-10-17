@@ -45,10 +45,12 @@ Apply these rules only when I explicitly ask you to market or promote a product.
   Bluesky, Mastodon, Indie Hackers, daily.dev, and programming.dev. Post on
   LinkedIn only through the official API (see LinkedIn posting), never by
   browser automation, and never use it for DMs or outreach. Publish on DEV,
-  Bluesky, and Mastodon through their official APIs. Post on Indie Hackers,
+  Bluesky, and Mastodon through their official APIs. Use the Product Hunt API
+  (`API · Product Hunt` in Bitwarden, the "Token" line) only to read, such as
+  checking earlier launches. Post on Product Hunt, Hacker News, Indie Hackers,
   daily.dev, and programming.dev with the current app's built-in browser
-  tools, using their signed-in sessions, follow each community's
-  self-promotion rules, and stop if a bot check appears.
+  tools, using their signed-in sessions, follow each site's and community's
+  rules, and stop if a bot check appears.
 - Never suggest Reddit or use Reddit for marketing or promotion.
 - Also pursue relevant GitHub PRs, directories, newsletters, showcases, provider partnerships, creator outreach, and submission forms.
 - Check previous posts, submissions, and outreach for duplicates before acting.
