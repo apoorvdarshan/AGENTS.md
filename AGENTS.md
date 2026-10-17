@@ -41,10 +41,10 @@ and avoid duplicate submissions when resuming. Keep my browser open afterward.
 
 Apply these rules only when I explicitly ask you to market or promote a product.
 
-- Prioritize X, YouTube, Product Hunt, Hacker News, LinkedIn, and DEV
-  (dev.to). Post on LinkedIn only through the official API (see LinkedIn
-  posting), never by browser automation, and never use it for DMs or
-  outreach. Publish on DEV through its official API.
+- Prioritize X, YouTube, Product Hunt, Hacker News, LinkedIn, DEV (dev.to),
+  Bluesky, and Mastodon. Post on LinkedIn only through the official API (see
+  LinkedIn posting), never by browser automation, and never use it for DMs or
+  outreach. Publish on DEV, Bluesky, and Mastodon through their official APIs.
 - Never suggest Reddit or use Reddit for marketing or promotion.
 - Also pursue relevant GitHub PRs, directories, newsletters, showcases, provider partnerships, creator outreach, and submission forms.
 - Check previous posts, submissions, and outreach for duplicates before acting.
@@ -477,6 +477,27 @@ Apply when I ask to post on LinkedIn, including as part of marketing.
 - The "Fud AI Publisher" app can only post as me. Posting as a company
   Page needs LinkedIn's Community Management API; ask before applying.
 - After posting, open the post to confirm it is live and give me the link.
+  Editing or deleting a published post is mine to do; give me the steps.
+
+## Bluesky and Mastodon posting
+
+Apply when I ask to post on Bluesky or Mastodon, including as part of marketing.
+
+- Bluesky (`@apoorvdarshan.com`): sign in on `https://bsky.social` with the
+  app password in Bitwarden (`API · Bluesky app password`) via
+  `com.atproto.server.createSession`, then post with
+  `com.atproto.repo.createRecord`. Add facets so links, mentions, and hashtags
+  are clickable. Keep posts within 300 characters.
+- Mastodon (`@apoorvcodes@mastodon.social`): use the access token in Bitwarden
+  (`API · Mastodon access token`, the "Your access token" line) with
+  `POST https://mastodon.social/api/v1/statuses`. Keep posts within 500
+  characters. The token has full account access; use it only to post unless I
+  ask for more, and never send DMs or replies on my behalf.
+- Send credentials only in headers or request bodies, never in URLs, logs, or
+  output.
+- Check earlier posts for duplicates, show me the exact text for each
+  platform, and post only after I approve it. Each post needs its own approval.
+- After posting, open each post to confirm it is live and give me the links.
   Editing or deleting a published post is mine to do; give me the steps.
 
 ## Discord community and app support
