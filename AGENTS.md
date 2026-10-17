@@ -41,7 +41,9 @@ and avoid duplicate submissions when resuming. Keep my browser open afterward.
 
 Apply these rules only when I explicitly ask you to market or promote a product.
 
-- Prioritize X, YouTube, Product Hunt, and Hacker News.
+- Prioritize X, YouTube, Product Hunt, Hacker News, and LinkedIn. Post on
+  LinkedIn only through the official API (see LinkedIn posting), never by
+  browser automation, and never use it for DMs or outreach.
 - Never suggest Reddit or use Reddit for marketing or promotion.
 - Also pursue relevant GitHub PRs, directories, newsletters, showcases, provider partnerships, creator outreach, and submission forms.
 - Check previous posts, submissions, and outreach for duplicates before acting.
