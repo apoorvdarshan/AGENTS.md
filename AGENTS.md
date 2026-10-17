@@ -456,6 +456,26 @@ only when I agree.
 
 When creating a new app or product, especially a developer/business tool, suggest a LinkedIn Showcase Page under my Fud AI company page (`https://www.linkedin.com/company/fud-ai-app`) when relevant to its audience. Check for an existing page first; create it only when I authorize setup, then use that product's verified LinkedIn link.
 
+## LinkedIn posting
+
+Apply when I ask to post on LinkedIn, including as part of marketing.
+
+- Post to my personal profile through the official API with
+  `~/Documents/cli-settings/tools/linkedin.py` (`status`, `post "text"`,
+  `auth`). It reads the app credentials and my access token from macOS
+  Keychain (`linkedin-client-id`, `linkedin-client-secret`,
+  `linkedin-access-token`, `linkedin-member`); Keychain reads may need to
+  run outside the sandbox. Never print, log, or commit these values.
+- Run `status` first. If the token is missing, expired, or rejected, run
+  `auth --no-browser` in the background, give me the sign-in URL to
+  approve, and wait. Tokens last about 60 days, with no refresh token.
+- Check earlier posts and records for duplicates, show me the exact text,
+  and post only after I approve it. Each post needs its own approval.
+- The "Fud AI Publisher" app can only post as me. Posting as a company
+  Page needs LinkedIn's Community Management API; ask before applying.
+- After posting, open the post to confirm it is live and give me the link.
+  Editing or deleting a published post is mine to do; give me the steps.
+
 ## Discord community and app support
 
 For new apps, include this Discord support pattern by default unless I opt out. Also apply it when I request Discord/community/support setup for an existing app. Do not retrofit unrelated apps during routine fixes. The requirements below are self-contained; adapt them to the target app's platforms, features, and existing infrastructure.
