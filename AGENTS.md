@@ -43,14 +43,9 @@ Apply these rules only when I explicitly ask you to market or promote a product.
 
 - Prioritize X, YouTube, Product Hunt, Hacker News, LinkedIn, DEV (dev.to),
   Bluesky, Mastodon, Indie Hackers, daily.dev, and programming.dev. Post on
-  LinkedIn only through the official API (see LinkedIn posting), never by
-  browser automation, and never use it for DMs or outreach. Publish on X, DEV,
-  Bluesky, and Mastodon through their official APIs. Use the Product Hunt API
-  (`API · Product Hunt` in Bitwarden, the "Token" line) only to read, such as
-  checking earlier launches. Post on Product Hunt, Hacker News, Indie Hackers,
-  daily.dev, and programming.dev with the current app's built-in browser
-  tools, using their signed-in sessions, follow each site's and community's
-  rules, and stop if a bot check appears.
+  each as described in its section (LinkedIn posting; X, Bluesky, and
+  Mastodon posting; Other posting; YouTube uploads). Never use LinkedIn
+  through browser automation or for DMs or outreach.
 - Never suggest Reddit or use Reddit for marketing or promotion.
 - Also pursue relevant GitHub PRs, directories, newsletters, showcases, provider partnerships, creator outreach, and submission forms.
 - Check previous posts, submissions, and outreach for duplicates before acting.
@@ -493,8 +488,8 @@ Apply when I ask to post on X, Bluesky, or Mastodon, including as part of market
   with OAuth 1.0a, using the consumer key and secret and the access token and
   secret in Bitwarden (`API · X`, the OAuth 1.0 lines). Calls are billed from
   pay-per-use credits, so avoid unnecessary requests. Keep posts within 280
-  characters. The token can also read and send DMs; never send DMs or replies
-  on my behalf.
+  characters. The token can also read and send DMs; send DMs or replies only
+  when I ask.
 - Bluesky (`@apoorvdarshan.com`): sign in on `https://bsky.social` with the
   app password in Bitwarden (`API · Bluesky app password`) via
   `com.atproto.server.createSession`, then post with
@@ -504,7 +499,7 @@ Apply when I ask to post on X, Bluesky, or Mastodon, including as part of market
   (`API · Mastodon access token`, the "Your access token" line) with
   `POST https://mastodon.social/api/v1/statuses`. Keep posts within 500
   characters. The token has full account access; use it only to post unless I
-  ask for more, and never send DMs or replies on my behalf.
+  ask for more, and send DMs or replies only when I ask.
 - Send credentials only in headers or request bodies, never in URLs, logs, or
   output.
 - Check earlier posts for duplicates. Post on X without asking me first. For
@@ -512,6 +507,20 @@ Apply when I ask to post on X, Bluesky, or Mastodon, including as part of market
   it; each post needs its own approval.
 - After posting, open each post to confirm it is live and give me the links.
   Editing or deleting a published post is mine to do; give me the steps.
+
+## Other posting
+
+Apply when I ask to post on DEV, Product Hunt, Hacker News, Indie Hackers,
+daily.dev, or programming.dev, including as part of marketing.
+
+- DEV: publish through its official API with the key in Bitwarden
+  (`API · DEV (dev.to) token`).
+- Product Hunt: use its API (`API · Product Hunt`, the "Token" line) only to
+  read, such as checking earlier launches.
+- Post on Product Hunt, Hacker News, Indie Hackers, daily.dev, and
+  programming.dev with the current app's built-in browser tools, using their
+  signed-in sessions, follow each site's and community's rules, and stop if a
+  bot check appears.
 
 ## Discord community and app support
 
